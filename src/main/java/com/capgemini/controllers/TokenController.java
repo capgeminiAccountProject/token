@@ -22,6 +22,8 @@ public class TokenController {
     @PostMapping("/gettoken")
     public ResponseEntity<GetTokenResponse> getToken(@RequestBody GetTokenRequest getTokenRequest) {
 
+
+
         Token token = tokenServiceImpl.getNewToken(getTokenRequest);
 
         HttpHeaders responseHeaders = new HttpHeaders();
