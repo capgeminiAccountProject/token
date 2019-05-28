@@ -2,6 +2,12 @@ package com.capgemini.beans;
 
 import com.capgemini.exceptions.TokenException;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Setter @Getter @NoArgsConstructor @ToString
 public class CheckTokenResponse {
     private String token;
     private String status;
@@ -10,33 +16,6 @@ public class CheckTokenResponse {
     public CheckTokenResponse(String token, String status, TokenException tokenException) {
         this.token = token;
         this.status = status;
-        this.tokenException = tokenException;
-    }
-
-    public CheckTokenResponse() {
-    }
-
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
-    public TokenException getTokenException() {
-        return tokenException;
-    }
-
-    public void setTokenException(TokenException tokenException) {
         this.tokenException = tokenException;
     }
 }
