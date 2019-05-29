@@ -8,6 +8,8 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtBuilder;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,8 @@ import java.util.Date;
 @Service
 @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class TokenServiceImpl implements TokenService {
+
+    private static final Logger logger = LoggerFactory.getLogger(TokenServiceImpl.class);
 
     public Token getNewToken(GetTokenRequest getTokenRequest) {
         long time = getTokenRequest.getEmail().startsWith("a") ? 60000 : 30 * 60 * 1000;

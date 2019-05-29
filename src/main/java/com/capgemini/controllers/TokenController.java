@@ -4,6 +4,8 @@ import com.capgemini.beans.*;
 import com.capgemini.constants.Constants;
 import com.capgemini.exceptions.Impl.TokenExceptionImpl;
 import com.capgemini.services.Impl.TokenServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
@@ -15,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 public class TokenController {
 
+    private static final Logger logger = LoggerFactory.getLogger(TokenServiceImpl.class);
+
     @Autowired
     private TokenServiceImpl tokenServiceImpl;
 
@@ -22,6 +26,7 @@ public class TokenController {
     @PostMapping("/gettoken")
     public ResponseEntity<GetTokenResponse> getToken(@RequestBody GetTokenRequest getTokenRequest) {
 
+        logger.info("gettoken request : " + getTokenRequest.toString());
 
 
         Token token = tokenServiceImpl.getNewToken(getTokenRequest);
@@ -38,6 +43,7 @@ public class TokenController {
     @PostMapping("/checktokenapp")
     public ResponseEntity<CheckTokenResponse> checkTokenApp(@RequestHeader(value="authorization") String token,
                                                        @RequestBody CheckTokenRequest checkTokenRequest) {
+        logger.info("checkTokenApp request: " + checkTokenRequest.toString());
 
         HttpHeaders responseHeaders = new HttpHeaders();
         responseHeaders.set(Constants.AUTHORIZATION, Constants.TOKEN_IS_NOT_CORRECT);
@@ -66,6 +72,8 @@ public class TokenController {
     @PostMapping("/checktokenuser")
     public ResponseEntity<CheckTokenResponse> checkTokenUser(@RequestHeader(value="authorization") String token,
                                                             @RequestBody CheckTokenRequest checkTokenRequest) {
+        logger.info("checkTokenUser request: " + checkTokenRequest.toString());
+
 
         HttpHeaders responseHeaders = new HttpHeaders();
         getHeader(responseHeaders, Constants.FAIL, null);
