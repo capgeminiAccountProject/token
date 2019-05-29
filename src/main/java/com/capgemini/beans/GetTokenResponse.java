@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Setter @Getter @NoArgsConstructor @ToString
+@Setter @Getter @NoArgsConstructor
 
 public class GetTokenResponse {
     private String token;

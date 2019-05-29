@@ -1,0 +1,9 @@
+---
+applications:
+- name: capgemini-0.0.1
+  memory: 768M
+  instances: 1
+  random-route: true
+  path: capgemini-0.0.1.jar
+  buildpacks:
+  - https://github.com/cloudfoundry/java-buildpack

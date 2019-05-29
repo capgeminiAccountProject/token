@@ -4,9 +4,8 @@ package com.capgemini.beans;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
-@Setter @Getter @NoArgsConstructor @ToString
+@Setter @Getter @NoArgsConstructor
 public class GetTokenRequest {
     private String email;
     private String pwd;
