@@ -5,7 +5,6 @@ import com.capgemini.exceptions.Impl.TokenExceptionImpl;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.ToString;
 
 @Setter @Getter @NoArgsConstructor
 
