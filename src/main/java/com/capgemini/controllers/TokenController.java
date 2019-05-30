@@ -28,7 +28,6 @@ public class TokenController {
 
         logger.info("gettoken request : " + getTokenRequest.toString());
 
-
         Token token = tokenServiceImpl.getNewToken(getTokenRequest);
 
         HttpHeaders responseHeaders = new HttpHeaders();
